@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin:0;
+  background-size: cover;
+  background-position: center;
+}
+</style>
+</head>
+<body>
+<script>
+const images = [
+  "https://picsum.photos/1920/1080?random=1",
+  "https://picsum.photos/1920/1080?random=2"
+];
+document.body.style.backgroundImage = `url('${images[Math.floor(Math.random()*images.length)]}')`;
+</script>
+</body>
+</html>
