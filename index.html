@@ -1,17 +1,42 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>랜덤 이미지</title>
+</head>
+<body>
+
+  <h1>랜덤 이미지</h1>
+
+  <img id="img" style="max-width: 100%; height: auto;">
+
+  <!-- 1️⃣ 여기! GAS 웹앱 URL을 script src 로 넣는다 -->
+
+  <script src="https://script.google.com/macros/s/AKfycbyx0RdrgWZqYXG2dy_ABG0IuxTsk7fB6Ds7DOMKUxP-3d_ceOQSU6gzsDhRezmXO43cjQ/exec"></script>
+
+  <!-- 2️⃣ GAS에서 내려준 변수를 사용 -->
+  <script>
+    function setRandomImage() {
+      if (!Array.isArray(DRIVE_IMAGES) || DRIVE_IMAGES.length === 0) {
+        console.error("이미지 목록이 비어 있음");
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * DRIVE_IMAGES.length);
+      const id = DRIVE_IMAGES[randomIndex];
+
+      document.getElementById("img").src =
+        "https://drive.google.com/uc?export=view&id=" + id;
+    }
+
+    setRandomImage();
+  </script>
+
+</body>
+</html>
 
 
 
-<script src="https://script.google.com/macros/s/AKfycbyx0RdrgWZqYXG2dy_ABG0IuxTsk7fB6Ds7DOMKUxP-3d_ceOQSU6gzsDhRezmXO43cjQ/exec"></script>
 
-<img id="img">
 
-<script>
-  if (DRIVE_IMAGES.length === 0) return;
-
-  const id =
-    DRIVE_IMAGES[Math.floor(Math.random() * DRIVE_IMAGES.length)];
-
-  document.getElementById("img").src =
-    "https://drive.google.com/uc?export=view&id=" + id;
-</script>
