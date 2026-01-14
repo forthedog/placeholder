@@ -16,23 +16,32 @@
   <script src="https://script.google.com/macros/s/AKfycbwey7l19QgP5ADdn4ERQRC4k1WIS-2walF4EnHdhBqa2esOLF9IyHuBS2SJLCBCeeoH-w/exec"></script>
 
   <!-- 2️⃣ GAS에서 내려준 변수를 사용 -->
-  <script>
-    function setRandomImage() {
-      if (!Array.isArray(DRIVE_IMAGES) || DRIVE_IMAGES.length === 0) {
-        console.error("이미지 목록이 비어 있음");
-        return;
-      }
 
-      const randomIndex = Math.floor(Math.random() * DRIVE_IMAGES.length);
-      const id = DRIVE_IMAGES[randomIndex];
 
-      document.getElementById("img").src =
-        "https://drive.google.com/uc?export=view&id=" + id;
-    }
+<script>
+  function setRandomImage() {
+    if (!Array.isArray(DRIVE_IMAGES) || DRIVE_IMAGES.length === 0) return;
 
-    setRandomImage();
-  </script>
+    const id =
+      DRIVE_IMAGES[Math.floor(Math.random() * DRIVE_IMAGES.length)];
 
+    document.getElementById("img").src =
+      "https://drive.google.com/thumbnail?id=" + id + "&sz=w2000";
+  }
+
+  setRandomImage();
+</script>
+
+
+
+
+
+
+
+
+
+
+  
 </body>
 </html>
 
